@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_titles">
+        <item>Set Unlock Location</item>
+        <item>Manage Blacklist</item>
+    </string-array>
+</resources>

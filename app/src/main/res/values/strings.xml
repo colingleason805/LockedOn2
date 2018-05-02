@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">LockedOn2</string>
+    <string name="main_fixed">You are currently:</string>
+    <string name="main_status">LockedOn</string>
+    <string name="main_button">Authenticate</string>
+    <string name="list_setUnlockLocation">Set Unlock Location</string>
+    <string name="list_blacklist">Blacklist</string>
+    <string name="list_savedLocations">Saved Location</string>
+    <string name="error_message">No location has been saved. Please navigate to Set Unlock Location and do so</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="location_permission_denied">Location Data usage permission denied. Now exiting</string>
+    <string name="map_button_text">Confirm marker as unlock location</string>
+    <string name="title_activity_saved_location">SavedLocationActivity</string>
+    <string name="current_unlock_header">The current unlock location is:</string>
+    <string name="title_activity_blacklist">Settings</string>
+    <string name="main_begin_restriction">Begin App Restriction</string>
+    <string name="Add_Geofence">Confirm Unlock Location</string>
+</resources>
