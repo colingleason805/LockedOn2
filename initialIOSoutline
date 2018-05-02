@@ -1,0 +1,44 @@
+app: LockIn, Focus(ed)
+locks your computer
+and certain apps in your phone until your location of your phone is within 10 ft of your gym or workout area
+ 
+multiple preset times
+ability to set time and lock out
+ability to text a number to have a code sent to you to unlock your phone and computer
+        	will have to deal with a saucy response
+ 
+utilize hand off or some other framework to ensure that the user is locked out of all registered devices
+ 
+need device registration
+ 
+12hr prior confirmation for scheduled locking to ensure that situation ch ages do not lock phone 
+ 
+need have unlock button for phone if there is no wifi or cellular connection. Ie, if the gps can’t find the device, it should automatically unlock
+ 
+press button on login screen, gets gps coordinate. checks against entered map location->gps, unlocks if true
+https://www.raywenderlich.com/92667/securing-ios-data-keychain-touch-id-1password
+ 
+file sharing support to unlock computer when phone is unlocked and vice-versa
+ 
+grand central dispatch to monitor signals between devices on whether location has been reached? is this how i want my devices to interact
+ 
+sqlite for a database to hold preset locations. Or cloud kit repository
+ 
+core location framework for location data. Use map kit  swell so that users can type in an address/drop a pin. Then convert this location to gps.
+ 
+event kit to use calendar events. Take calendar event and automatically schedule locking
+ 
+system configuration framework to see if there is a network connection
+ 
+JSLockScreen   https://www.cocoacontrols.com/controls/jslockscreen
+It can be done by caling GSEventLockDevice (); from your app. This function can be found in GraphicsServices.framework.
+http://stackoverflow.com/questions/832940/programmatically-lock-and-unlock-iphone-screen
+ 
+local authentication framework. deals with in app
+ 
+will need to request location data, need
+The current authorization status for location data is available from theauthorizationStatus class method of CLLocationManager. In requesting authorization in iOS 8 and later, you must use the requestWhenInUseAuthorization orrequestAlwaysAuthorization method and include theNSLocationWhenInUseUsageDescription or NSLocationAlwaysUsageDescription key in your Info.plist file to indicate the level of authorization you require.
+ 
+https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/LocationAwarenessPG/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009497 location guide
+ 
+have it track in the background and unlock automatically. This will be harder and will require background execution. It will also increase battery usage. It depends on whether I want the unlock to feel like an unlock, or whether I want it to feel like coming into vision
