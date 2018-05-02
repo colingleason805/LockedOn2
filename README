@@ -1,0 +1,21 @@
+LockedOn restricts user access to self-blacklisted apps until the user, brings their device to a previously set unlock-location.
+Employs Google Maps API, Geofences API, Android JobScheduler module and others.
+
+
+
+
+To Do:
+
+Bug fixes: saved location, blacklist
+Rework UI and clean up UI
+Flesh out GoogleMap functionality
+Add code to take user to necessary settings area to enable app functionality
+ensure proper memory management by deleting no lnoger useful data, such as breached geofences
+remove geofence that was created in order to save memory
+fix list of apps bugs that causes crash on scroll 
+
+
+on starting emulator:
+enable fine access permissions
+enable usage stats permissions
+enable google to use everything it needs in google settings
