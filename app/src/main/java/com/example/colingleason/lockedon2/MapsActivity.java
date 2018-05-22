@@ -85,6 +85,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }*/
         UiSettings settings = mMap.getUiSettings();
         settings.setZoomControlsEnabled(true);
+        settings.setAllGesturesEnabled(true);
+        settings.setCompassEnabled(true);
+        settings.setMapToolbarEnabled(true);
         enableMyLocation();
     }
     private void enableMyLocation() {

@@ -1,7 +1,5 @@
 package com.example.colingleason.lockedon2;
 
-
-
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void authenticateBtnClicked(View view){
         if(unlockLocationReached){
-            //get the jobscheduler and cancel all jobs
+            //get the jobscheduler and cancel all jobs called by LockedOn
             mJobScheduler = (JobScheduler)
                     getSystemService(Context.JOB_SCHEDULER_SERVICE);
             mJobScheduler.cancelAll();
@@ -55,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "You have reached your unlock location. App restriction is now disabled",
             Toast.LENGTH_SHORT).show();
         }
+        else{
+            Toast.makeText(this, "Unlock location not yet reached, restriction continuing", Toast.LENGTH_SHORT );
+        }
+    }
+
+    public void overrideBtnClicked(View view){
+        mJobScheduler = (JobScheduler)
+                getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        mJobScheduler.cancelAll();
+
+        Toast.makeText(this, "App restriction has been manually overrode",
+                Toast.LENGTH_SHORT).show();
     }
 
     public void confirmBtnClicked(View view){
