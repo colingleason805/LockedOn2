@@ -60,7 +60,7 @@ public class BlacklistActivity extends ListActivity {
         blacklist.add("fill");
     }
 
-
+    //TODO: this is likely the source of the bug when scrolling too far on the blacklist
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 

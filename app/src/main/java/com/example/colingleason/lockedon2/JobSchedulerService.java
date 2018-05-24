@@ -13,12 +13,14 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import android.app.AlertDialog;
 
 import static com.example.colingleason.lockedon2.BlacklistActivity.blacklist;
 
 public class JobSchedulerService extends JobService {
     private static final String TAG = "JobSchedulerService";
 
+    //TODO: Add a tag/ID to the job so that I can explicitly kill it when monitoring ends
     @Override
     public boolean onStartJob(JobParameters params) {
         Log.i(TAG, "onStartJob:");
@@ -30,9 +32,13 @@ public class JobSchedulerService extends JobService {
         @SuppressWarnings("WrongConstant")
         UsageStatsManager usm = (UsageStatsManager) getSystemService("usagestats");
         long time = System.currentTimeMillis();
+
+        //get a list of apps that have been used
         List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY,
                 time - 1000 * 1000, time);
         String currentApp = null;
+
+        //
         if (appList != null && appList.size() > 0) {
             SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
             for (UsageStats usageStats : appList) {

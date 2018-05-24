@@ -15,4 +15,8 @@
     <string name="title_activity_blacklist">Settings</string>
     <string name="main_begin_restriction">Begin App Restriction</string>
     <string name="Add_Geofence">Confirm Unlock Location</string>
+    <string name="dont_override">Cancel</string>
+    <string name="override">Stop App Restriction</string>
+    <string name="override_dialogue">Are you certain you want to stop app restriction early?</string>
+    <string name="override_button">Manual Override</string>
 </resources>

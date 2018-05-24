@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void authenticateBtnClicked(View view){
+    public void authenticateBtnClicked(){
         if(unlockLocationReached){
             //get the jobscheduler and cancel all jobs called by LockedOn
             mJobScheduler = (JobScheduler)
@@ -59,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void overrideBtnClicked(View view){
+
+        OverrideFragment override = new OverrideFragment();
+        override.show(getSupportFragmentManager(), "override");
         mJobScheduler = (JobScheduler)
                 getSystemService(Context.JOB_SCHEDULER_SERVICE);
         mJobScheduler.cancelAll();
+        unlockLocationReached = true;
 
-        Toast.makeText(this, "App restriction has been manually overrode",
-                Toast.LENGTH_SHORT).show();
     }
 
     public void confirmBtnClicked(View view){
