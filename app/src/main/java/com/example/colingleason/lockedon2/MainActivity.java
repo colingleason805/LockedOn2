@@ -5,6 +5,7 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.colingleason.lockedon2.dummy.DummyContent;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 import static com.example.colingleason.lockedon2.R.layout.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BlackListFragment.OnListFragmentInteractionListener{
 
     static LatLng unlockLocation = null;
     public static boolean unlockLocationReached = true;
@@ -112,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
           //  Log.e(TAG, "onCreate: Some error while scheduling the job");
         //}
         //Toast.makeText(this, "hellooooo", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onListFragmentInteraction(ApplicationInfo item) {
+        //TODO: do something with the blacklisted apps package names
     }
 }
 

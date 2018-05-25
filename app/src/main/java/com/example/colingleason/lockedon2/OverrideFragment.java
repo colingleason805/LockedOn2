@@ -19,7 +19,8 @@ public class OverrideFragment extends DialogFragment {
                 .setPositiveButton(R.string.override, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                         //TODO: add code to stop background application monitoring
+
+                         //TODO: Modularize all instances of this code
                         //get the jobscheduler and cancel all jobs called by LockedOn
                         JobScheduler mJobScheduler = (JobScheduler)
                                 getActivity().getSystemService(Context.JOB_SCHEDULER_SERVICE);

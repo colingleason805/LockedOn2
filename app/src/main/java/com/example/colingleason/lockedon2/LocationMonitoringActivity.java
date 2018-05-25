@@ -32,12 +32,15 @@ public class LocationMonitoringActivity extends AppCompatActivity implements Goo
     public static GoogleApiClient mGoogleApiClient;
     private Button mAddGeofencesButton;
 
+    //TODO: fix the add geofences/begin location monitoring UI
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_monitoring);
 
         mAddGeofencesButton = (Button) findViewById(R.id.add_geofences_button);
+
         // Empty list for storing geofences.
         mGeofenceList = new ArrayList<Geofence>();
 

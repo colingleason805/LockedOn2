@@ -1,6 +1,8 @@
 package com.example.colingleason.lockedon2;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,7 +15,9 @@ import android.view.ViewGroup;
 import com.example.colingleason.lockedon2.dummy.DummyContent;
 import com.example.colingleason.lockedon2.dummy.DummyContent.DummyItem;
 
+import java.util.ArrayList;
 import java.util.List;
+import com.example.colingleason.lockedon2.BlackListItem;
 
 /**
  * A fragment representing a list of Items.
@@ -64,12 +68,18 @@ public class BlackListFragment extends Fragment {
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
+
+            //choose which layout manager to use based on number of columns in list
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+
+            //set the adapter with a list of installed apps, a callback to the parent activity,
+            //and the context.
+            List<ApplicationInfo> list = getInstalledApps();
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(list, mListener, getActivity()));
         }
         return view;
     }
@@ -78,6 +88,9 @@ public class BlackListFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
+        //ensure that the parent activity has implemented the OnListFragmentInteractionListener
+        //interface so that we can send data back to the parent activity
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
         } else {
@@ -92,6 +105,19 @@ public class BlackListFragment extends Fragment {
         mListener = null;
     }
 
+    //Returns a re-formatted list of all installed apps
+    public List<ApplicationInfo> getInstalledApps(){
+
+        //get the installed applications
+        PackageManager pm = getActivity().getPackageManager();
+        List<ApplicationInfo> applist = pm.getInstalledApplications
+                (PackageManager.GET_META_DATA);
+
+        //TODO:Also filter the given apps so that the list is only user-installed applications
+
+        return applist;
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -102,8 +128,11 @@ public class BlackListFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
+    //TODO: Needs to return a list of chosen blacklisted apps to Main Activity
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+
+        //TODO: fix to match the List of things I need, i think its package names
+        //TODO: Change this implementation and BlackListFragment's interface to send/receive a list
+        void onListFragmentInteraction(ApplicationInfo item);
     }
 }
