@@ -13,6 +13,7 @@ Add code to take user to necessary settings area to enable app functionality
 ensure proper memory management by deleting no lnoger useful data, such as breached geofences
 
 fix list of apps bug that causes crash on scroll 
+Modularize code that stops JobServices background tasks as it used repetatedly
 
 
 on starting emulator:
