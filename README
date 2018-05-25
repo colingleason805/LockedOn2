@@ -11,7 +11,7 @@ Rework UI and clean up UI
 Flesh out GoogleMap functionality
 Add code to take user to necessary settings area to enable app functionality
 ensure proper memory management by deleting no lnoger useful data, such as breached geofences
-remove geofence that was created in order to save memory
+
 fix list of apps bug that causes crash on scroll 
 
 
